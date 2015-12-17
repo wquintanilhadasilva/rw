@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta charset="UTF-8">
+
+        <title></title>
+
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css">
+
+    </head>
+
+    <body ng-app="rw" ng-controller="IndexController">
+
+        <div class="container-fluid">
+
+            <div class="panel panel-default">
+
+            <div class="panel-heading">Cadastro</div>
+
+            <div class="panel-body">
+
+                <div class="row">
+                        <form novalidate name="myForm">
+                            <div class="col-sm-4">
+                                <div class="form-group"
+                                     ng-class="{'has-error': myForm.txtNome.$invalid && myForm.txtNome.$touched}">
+                                    <label class="control-label" for="idNome">Nome</label>
+                                    <input type="text"
+                                           id="idNome"
+                                           class="form-control"
+                                           placeholder="Entre com o nome"
+                                           ng-model="pessoa.nome"
+                                           ng-keydown="digitar()"
+                                           required
+                                           ng-minlength="3"
+                                           ng-maxlength="15"
+                                           name="txtNome"/>
+                                    <div class="help-block"
+                                         ng-messages="myForm.txtNome.$error"
+                                         ng-if="myForm.txtNome.$invalid && myForm.txtNome.$touched">
+                                        <div ng-messages-include="messages.html"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group"
+                                    ng-class="{'has-error': myForm.idNasc.$invalid && myForm.idNasc.$touched}">
+                                <label class="control-label" for="idNascimento">Nascimento</label>
+                                <input type="date"
+                                       id="idNascimento"
+                                       class="form-control"
+                                       ng-model = "pessoa.nascimento"
+                                       required
+                                       name="idNasc"/>
+                                <div class="help-block"
+                                     ng-messages="myForm.idNasc.$error"
+                                     ng-if="myForm.idNasc.$invalid && myForm.idNasc.$touched">
+                                    <div ng-messages-include="messages.html"></div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group"
+                                        ng-class="{'has-error':myForm.idSex.$invalid && myForm.idSex.$touched}">
+                                <label class="control-label" for="idSexo">Sexo</label>
+                                <select id="idSexo"
+                                        class="form-control"
+                                        ng-model="pessoa.sexo"
+                                        required
+                                        name="idSex">
+                                    <option>Masculino</option>
+                                    <option>Feminino</option>
+                                </select>
+
+                                <div class="help-block"
+                                     ng-messages="myForm.idSex.$error"
+                                     ng-if="myForm.idSex.$invalid && myForm.idSex.$touched">
+                                    <div ng-messages-include="messages.html"></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                    <table class="table table-striped">
+                        <thead>
+                            <th>Nome</th>
+                            <th>Nascimento</th>
+                            <th>Sexo</th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in listaDePessoas">
+                                <td>
+                                    <span ng-bind="item.nome | maiusculo"></span>
+                                </td>
+                                <td>
+                                    <span ng-bind="item.nascimento | date: 'dd/MM/yyyy'"></span>
+                                </td>
+                                <td>
+                                    <span ng-bind="item.sexo"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="btn-group">
+                    <button class="btn btn-primary"
+                            ng-click="salvar()">
+                        <i class="fa fa-save"></i>
+                        Salvar
+                    </button>
+                    <button class="btn btn-warning"
+                            ng-click="limpar()">
+                        <i class="fa fa-eraser"></i>
+                        Limpar
+                    </button>
+                    <button class="btn btn-danger" ng-click="excluir()"
+                            ng-disabled="myForm.$invalid">
+                        <i class="fa fa-trash"></i>
+                        Excluir
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </body>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="js/app-config.js"></script>
+    <script src="js/services/AlertServices.js"></script>
+    <script src="js/filters/maiusculo.js"></script>
+    <script src="js/controllers/indexController.js"></script>
+
+</html>
