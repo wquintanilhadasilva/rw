@@ -1,0 +1,4 @@
+<div class="ui-grid-cell-contents" title="TOOLTIP"
+    ng-click="grid.appScope.gridItemClick(row.entity,$index,rowRenderIndex, col.colDef.field)">
+    <p ng-bind="row.entity[col.colDef.field] | date: 'dd/MM/yyyy'| maiusculo"></p>
+</div>

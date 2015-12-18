@@ -1,1 +1,1 @@
-angular.module('rw',['ngMessages','toastr']);
+angular.module('rw',['ngMessages','toastr','ui.grid']);
