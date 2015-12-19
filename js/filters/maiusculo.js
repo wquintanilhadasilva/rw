@@ -16,6 +16,6 @@ function maiusculo(){
         }
 
         return value;
-    }
+    };
 
-};
+}

@@ -13,14 +13,14 @@ function AlertServices(toastr){
     this.showInfo = showInfo;
 
     function showError(msg){
-        toastr.error(msg,"Erro");
-    };
+        toastr.error(msg,'Erro');
+    }
 
     function showSuccess(msg){
-        toastr.success(msg,"Sucesso");
-    };
+        toastr.success(msg,'Sucesso');
+    }
 
     function showInfo(msg){
-        toastr.info(msg,"Info");
-    };
+        toastr.info(msg,'Info');
+    }
 }

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Exercício AngularJS</title>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css">
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/oclazyload/dist/ocLazyLoad.js"></script>
+
+    <script src="js/app-config.js"></script>
+    <script src="js/services/AlertServices.js"></script>
+    <script src="js/filters/maiusculo.js"></script>
+
+    <script src="js/controllers/indexController6.js"></script>
+    
+    <script src="views/pessoaService.js"></script>
+
+</head>
+<body ng-app="rw">
+
+    <div ng-controller="IndexController6" class="container">
+
+        <div class="container-fluid">
+
+            <p/>
+
+            <div class="btn-group">
+
+                <button class="btn btn-default" ui-sref="home">
+                    <i class="fa fa-home"></i>
+                </button>
+
+                <button class="btn btn-primary" ui-sref="pessoa.cadastro">
+                    <i class="fa fa-amazon"></i>
+                </button>
+
+                <button class="btn btn-warning" ui-sref="pessoa.pesquisa">
+                    <i class="fa fa-home"></i>
+                </button>
+
+            </div>
+            <p/>
+
+            <div ui-view></div>
+        </div>
+
+    </div>
+
+
+</body>
+</html>

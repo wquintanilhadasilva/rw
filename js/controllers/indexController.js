@@ -4,8 +4,7 @@
 
 angular.module('rw').controller('IndexController', IndexController);
 
-IndexController.$inject=['$scope','$timeout','AlertServices','$filter'];
-
+/* @ngInject */
 function IndexController($scope, $timeout, AlertServices, $filter){
 
     $scope.listaDePessoas = [];
@@ -56,15 +55,15 @@ function IndexController($scope, $timeout, AlertServices, $filter){
 
             setTouched();
 
-            AlertServices.showError("Erro nos dados");
+            AlertServices.showError('Erro nos dados');
 
             return;
 
-        };
+        }
 
         $scope.listaDePessoas.push($scope.pessoa);
 
-        AlertServices.showSuccess("Dados gravados");
+        AlertServices.showSuccess('Dados gravados');
 
         limpar();
 
@@ -91,4 +90,4 @@ function IndexController($scope, $timeout, AlertServices, $filter){
 
     }
 
-};
+}

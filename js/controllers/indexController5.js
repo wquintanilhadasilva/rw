@@ -4,8 +4,7 @@
 
 angular.module('rw').controller('IndexController5', IndexController5);
 
-IndexController5.$inject=['$scope','$timeout','AlertServices','$filter'];
-
+/* @ngInject */
 function IndexController5($scope, $timeout, AlertServices, $filter){
 
     $scope.listaDePessoas = [];
@@ -26,9 +25,9 @@ function IndexController5($scope, $timeout, AlertServices, $filter){
     init();
 
     function init(){
-        $scope.gridOptions.data = "listaDePessoas";
+        $scope.gridOptions.data = 'listaDePessoas';
 
-        $scope.gridOptions.rowTemplate = "templates/row-template.html";
+        $scope.gridOptions.rowTemplate = 'templates/row-template.html';
 
         $scope.gridOptions.columnDefs = [
             {displayName:'Nome',field:'nome', cellTemplate:'templates/cell-template.html'},
@@ -77,15 +76,15 @@ function IndexController5($scope, $timeout, AlertServices, $filter){
 
             setTouched();
 
-            AlertServices.showError("Erro nos dados");
+            AlertServices.showError('Erro nos dados');
 
             return;
 
-        };
+        }
 
         $scope.listaDePessoas.push($scope.pessoa);
 
-        AlertServices.showSuccess("Dados gravados");
+        AlertServices.showSuccess('Dados gravados');
 
         limpar();
 
@@ -107,7 +106,7 @@ function IndexController5($scope, $timeout, AlertServices, $filter){
     }
 
     function gridItemClick(entity,col, row, field){
-        AlertServices.showInfo('Item: ' +entity.nome + ". Coluna: " + col + ". Linha: " + row + ". Field: " + field)
+        AlertServices.showInfo('Item: ' +entity.nome + '. Coluna: ' + col + '. Linha: ' + row + '. Field: ' + field);
     }
 
     function getRowStyle(linhaSelecionada){
@@ -130,4 +129,4 @@ function IndexController5($scope, $timeout, AlertServices, $filter){
         $scope.pessoa = entity;
     }
 
-};
+}
