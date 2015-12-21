@@ -11,7 +11,7 @@
     /* @ngInject */
     function PessoaCadastroController(AlertServices) {
         var vm = this;
-        vm.title = 'Wedson Controller';
+        vm.title = 'Mensagem gerada pelo Controller';
 
         vm.gravar = gravar;
 

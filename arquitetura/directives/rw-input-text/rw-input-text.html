@@ -1,0 +1,20 @@
+<div class="form-group"
+     ng-class="{'has-error': myForm[].$invalid && myForm.idCor.$touched}"
+        >
+<label class="control-label" for="{{::inputName}}">
+    <label ng-bind="::label"></label>
+    <label ng-show="ngRequired"
+           style="color: red;">
+        <i class="fa fa-asterisk"></i>
+    </label>
+</label>
+
+<input type="text"
+       class="form-control"
+       ng-model = "ngModel"
+       ng-required = "ngRequired"
+       ng-maxlength="ngMaxlength"
+       ng-minlength="ngMinlength"
+       placeHolder="{{::placeHolder}}"
+       name="{{::inputName}}"/>
+</div>

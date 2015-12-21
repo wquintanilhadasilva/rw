@@ -6,7 +6,37 @@
 
         <span ng-bind="vm.title"></span>
 
+        <p></p>
+
+        <div class="row">
+
+            <div class="col-sm-6">
+
+                <rw-input-text label="Nome"
+                               placeHolder="Entre com os dados da pessoa"
+                               ng-model="vm.entidade.nome"
+                               ng-required="true"
+                               ng-maxlength="50">
+                </rw-input-text>
+
+            </div>
+
+            <div class="col-sm-6">
+
+                <rw-input-text label="Sobrenome"
+                               placeHolder="Sobrenome da pessoa"
+                               ng-model="vm.entidade.sobreNome"
+                               ng-required="false"
+                               ng-maxlength="50">
+                </rw-input-text>
+
+            </div>
+
+        </div>
+
     </div>
+
+    <span>Dados da Entidade: {{vm.entidade}}</span>
 
     <div class="panel-footer">
 

@@ -18,7 +18,7 @@
                         files: [
                                 {
                                 expand: true,
-                                src: ['js/**','views/**','*.html'],
+                                src: ['js/**','views/**','*.html','app/**'],
                                 dest: 'build/'
                             }
                         ]
@@ -64,7 +64,45 @@
                             src: ['build/**/*.js']
                         }]
                     }
+                },
+
+                uglify:{
+                    app:{
+                        files:[
+                            {
+                                expand: true,
+                                src: ['build/**/*.js']
+                            }
+                        ]
+                    }
+                },
+
+                cssmin:{
+                    app:{
+                        files:[
+                            {
+                                expand: true,
+                                src: ['build/**/*.css']
+                            }
+                        ]
+                    }
+                },
+
+                htmlmin:{
+                    app:{
+                        options: {
+                            removeComments: true,
+                            collapseWhitespace: true
+                        },
+                        files:[
+                            {
+                                expand: true,
+                                src: ['build/**/*.html']
+                            }
+                        ]
+                    }
                 }
+
             });
 
             grunt.registerTask('build',[
@@ -72,6 +110,9 @@
                 'copy',
                 'ngAnnotate',
                 'concat',
+                'uglify',
+                'cssmin',
+                'htmlmin'
             ]);
 
         };
