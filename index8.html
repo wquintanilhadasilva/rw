@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Exercício AngularJS</title>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css">
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/oclazyload/dist/ocLazyLoad.js"></script>
+
+    <script src="js/app-config.js"></script>
+    <script src="arquitetura/directives/rw-input-text/rw-input-text.js"></script>
+    <script src="arquitetura/directives/rw-crud/rw-crud.js"></script>
+    <script src="js/services/AlertServices.js"></script>
+    <script src="js/controllers/indexController8.js"></script>
+
+</head>
+
+<body ng-app="rw">
+
+<div ng-controller="IndexController8 as vm" class="container">
+
+    <rw-crud titulo="Cadastro de Alunos"
+             salvar="vm.salvarPessoa()"
+             excluir="vm.excluirPessoa()"
+             limpar = "vm.limparPessoa()">
+
+        <div class="row">
+
+            <div class="col-sm-6">
+
+                <rw-input-text label="Nome"
+                               placeHolder="Entre com os dados da pessoa"
+                               ng-model="vm.entidade.nome"
+                               ng-required="true"
+                               ng-maxlength="50"
+                               ng-alessandro = "vm.entidade.teste">
+                </rw-input-text>
+
+            </div>
+
+            <div class="col-sm-6">
+                <rw-input-text label="Sobrenome"
+                               placeHolder="Sobrenome da pessoa"
+                               ng-model="vm.entidade.sobreNome"
+                               ng-required="false"
+                               ng-maxlength="50">
+                </rw-input-text>
+
+            </div>
+
+        </div>
+
+
+    </rw-crud>
+
+</div>
+
+
+</body>
+</html>

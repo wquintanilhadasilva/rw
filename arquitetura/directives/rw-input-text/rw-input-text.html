@@ -1,20 +1,30 @@
 <div class="form-group"
-     ng-class="{'has-error': myForm[].$invalid && myForm.idCor.$touched}"
-        >
-<label class="control-label" for="{{::inputName}}">
-    <label ng-bind="::label"></label>
-    <label ng-show="ngRequired"
-           style="color: red;">
-        <i class="fa fa-asterisk"></i>
-    </label>
-</label>
+     ng-class="{'has-error': myForm[inputName].$invalid && ( myForm[inputName].$dirty || myForm[inputName].$touched)}">
 
-<input type="text"
-       class="form-control"
-       ng-model = "ngModel"
-       ng-required = "ngRequired"
-       ng-maxlength="ngMaxlength"
-       ng-minlength="ngMinlength"
-       placeHolder="{{::placeHolder}}"
-       name="{{::inputName}}"/>
+    <label class="control-label" for="{{::inputName}}">
+        <label ng-bind="::label"></label>
+        <label ng-show="ngRequired"
+               style="color: red;">
+            <i class="fa fa-asterisk"></i>
+        </label>
+    </label>
+
+    <input type="text"
+           class="form-control"
+           ng-model = "ngModel"
+           ng-required = "ngRequired"
+           ng-maxlength="ngMaxlength"
+           ng-minlength="ngMinlength"
+           placeHolder="{{::placeHolder}}"
+           name="{{::inputName}}"/>
+
+    <div class="help-block"
+         ng-messages="myForm[inputName].$error"
+         ng-if="myForm[inputName].$invalid && (myForm[inputName].$dirty || myForm[inputName].$touched)">
+        <div ng-messages-include="arquitetura/messages.html"></div>
+    </div>
+
 </div>
+
+<label ng-bind="ngAlessandro"></label>
+

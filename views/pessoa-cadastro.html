@@ -10,33 +10,38 @@
 
         <div class="row">
 
-            <div class="col-sm-6">
+            <form novalidate name="myForm">
 
-                <rw-input-text label="Nome"
-                               placeHolder="Entre com os dados da pessoa"
-                               ng-model="vm.entidade.nome"
-                               ng-required="true"
-                               ng-maxlength="50">
-                </rw-input-text>
+                <div class="col-sm-6">
 
-            </div>
+                    <rw-input-text label="Nome"
+                                   placeHolder="Entre com os dados da pessoa"
+                                   ng-model="vm.entidade.nome"
+                                   ng-required="true"
+                                   ng-maxlength="50"
+                                   ng-alessandro = "vm.entidade.teste">
+                    </rw-input-text>
 
-            <div class="col-sm-6">
+                </div>
 
-                <rw-input-text label="Sobrenome"
-                               placeHolder="Sobrenome da pessoa"
-                               ng-model="vm.entidade.sobreNome"
-                               ng-required="false"
-                               ng-maxlength="50">
-                </rw-input-text>
+                <div class="col-sm-6">
 
-            </div>
+                    <rw-input-text label="Sobrenome"
+                                   placeHolder="Sobrenome da pessoa"
+                                   ng-model="vm.entidade.sobreNome"
+                                   ng-required="false"
+                                   ng-maxlength="50">
+                    </rw-input-text>
+
+                </div>
+
+            </form>
 
         </div>
 
-    </div>
+        <span>Dados da Entidade: {{vm.entidade}}</span>
 
-    <span>Dados da Entidade: {{vm.entidade}}</span>
+    </div>
 
     <div class="panel-footer">
 

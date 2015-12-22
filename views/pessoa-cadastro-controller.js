@@ -10,8 +10,16 @@
 
     /* @ngInject */
     function PessoaCadastroController(AlertServices) {
+
         var vm = this;
+
         vm.title = 'Mensagem gerada pelo Controller';
+
+        vm.entidade = {};
+
+        vm.allan = 'eita trem bão sô';
+
+        vm.entidade.teste = 'Inicio';
 
         vm.gravar = gravar;
 

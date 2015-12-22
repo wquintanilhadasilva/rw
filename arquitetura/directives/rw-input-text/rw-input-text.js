@@ -18,7 +18,8 @@
                 ngModel: '=',
                 ngRequired: '=?',
                 ngMaxlength: '@',
-                ngMinlength: '@'
+                ngMinlength: '@',
+                ngAlessandro: '='
             },
             link: link
         };
@@ -29,6 +30,12 @@
 
             if(!scope.ngRequired){
                 scope.ngRequired = false;
+            }
+
+            if(scope.ngAlessandro){
+                scope.ngAlessandro = scope.ngAlessandro +' Caraca véi!';
+            }else{
+                scope.ngAlessandro = 'Caraca véi!';
             }
 
         }
