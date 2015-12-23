@@ -8,11 +8,15 @@
             'ui.grid',
             'ui.router',
             'oc.lazyLoad',
-            'angular-keycode'
+            'angular-keycode',
+            'LocalStorageModule',
+            'angular-loading-bar'
         ]).config(configWed);
 
     /* @ngInject */
-    function configWed($stateProvider, $urlRouterProvider){
+    function configWed($stateProvider, $urlRouterProvider, localStorageServiceProvider){
+
+        localStorageServiceProvider.setPrefix('rw');
 
         var home = {
             url: '/home',

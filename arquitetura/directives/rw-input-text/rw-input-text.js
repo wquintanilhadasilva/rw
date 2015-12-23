@@ -7,6 +7,40 @@
     angular.module('rw')
         .directive('rwInputText', rwInputText);
 
+    /**
+     * @ngdoc directive
+     * @name rw.directives:rwInputText
+     * @element rw-input-text
+     * @scope
+     * @restric E
+     * @descriptions
+     *      Compontende input text padrão da arquiteture rw.
+     * @param {string} label blá blá blá blá
+     * @param {string} placeHolder blá blá blá blá
+     * @param {string} ngModel blá blá blá blá
+     * @param {string} ngRequired blá blá blá blá
+     * @param {string} ngMaxlength blá blá blá blá
+     * @param {string} ngMinlength blá blá blá blá
+     * @param {string} ngAlessandro blá blá blá blá
+     *
+     *  @example
+     *
+     *  <example module="rfx">
+            <file name="index.html">
+                <rw-input-text label="Nome"
+                   placeHolder="Entre com os dados da pessoa"
+                   ng-model="vm.rwService.entidade.nome"
+                   ng-required="true"
+                   ng-maxlength="50"
+                   ng-alessandro = "vm.rwService.entidade.nome">
+               </rw-input-text>
+             </file>
+             <file name="controller.js">
+                 Alert('Yes!');
+             </file>
+         </example>
+     *
+     */
     function rwInputText(){
         return {
             require:'^form',

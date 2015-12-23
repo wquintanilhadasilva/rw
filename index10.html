@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Exercício AngularJS</title>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css">
+    <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css"/>
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css"/>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/oclazyload/dist/ocLazyLoad.js"></script>
+    <script src="bower_components/angular-keycode/angular-keycode.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+
+    <script src="js/app-config.js"></script>
+    <script src="arquitetura/service/rw-services.js"></script>
+    <script src="arquitetura/service/session-service.js"></script>
+    <script src="js/services/pessoa-service.js"></script>
+    <script src="arquitetura/directives/rw-input-text/rw-input-text.js"></script>
+    <script src="arquitetura/directives/rw-crud2/rw-crud2.js"></script>
+    <script src="arquitetura/directives/rw-enter/rw-enter.js"></script>
+    <script src="js/services/AlertServices.js"></script>
+    <script src="js/controllers/indexController10.js"></script>
+
+</head>
+
+<body ng-app="rw">
+
+<div ng-controller="IndexController10 as vm" class="container">
+
+    <rw-crud2 titulo="Cadastro de Alunos"
+             service="vm.rwService"
+             rw-enter="vm.testeEnter()"   >
+
+        <div class="row">
+
+            <div class="col-sm-6">
+
+                <rw-input-text label="Nome"
+                               placeHolder="Entre com os dados da pessoa"
+                               ng-model="vm.rwService.entidade.nome"
+                               ng-required="true"
+                               ng-maxlength="50"
+                               ng-alessandro = "vm.rwService.entidade.nome">
+                </rw-input-text>
+
+            </div>
+
+            <div class="col-sm-6">
+                <rw-input-text label="Sobrenome"
+                               placeHolder="Sobrenome da pessoa"
+                               ng-model="vm.rwService.entidade.sobreNome"
+                               ng-required="false"
+                               ng-maxlength="50">
+                </rw-input-text>
+
+            </div>
+
+            <br><br>
+            {{rwService.entidade}}
+
+        </div>
+
+    </rw-crud2>
+
+    <button class="btn btn-default"
+            ng-click="vm.carregar()">
+        <i class="fa fa-play"></i>
+        Carregar
+    </button>
+
+    <button class="btn btn-default"
+            ng-click="vm.carregarService(1)">
+        <i class="fa fa-play"></i>
+        Carregar do Service - erro
+    </button>
+    <button class="btn btn-default"
+            ng-click="vm.carregarService(0)">
+        <i class="fa fa-play"></i>
+        Carregar do Service - OK
+    </button>
+
+    <button class="btn btn-default"
+            ng-click="vm.limpar()">
+        <i class="fa fa-trash"></i>
+        Limpar
+    </button>
+
+    <div ui-grid="vm.gridOptions"></div>
+
+</div>
+
+
+</body>
+</html>

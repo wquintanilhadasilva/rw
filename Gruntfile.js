@@ -101,6 +101,18 @@
                             }
                         ]
                     }
+                },
+
+                ngdocs:{
+                    options:{
+                        dest: 'docs',
+                        title: 'Documentação RW',
+                        html5Mode: false
+                    },
+                    arquitetura:{
+                        src:['arquitetura/**/*.js'],
+                        title: 'API'
+                    }
                 }
 
             });
@@ -112,7 +124,8 @@
                 'concat',
                 'uglify',
                 'cssmin',
-                'htmlmin'
+                'htmlmin',
+                'ngdocs'
             ]);
 
         };
