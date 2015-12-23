@@ -17,30 +17,12 @@
             link: link,
             scope: {
                 titulo: '@',
-                salvar: '&',
-                excluir: '&',
-                limpar: '&'
+                service: '='
             }
         };
 
         function link(scope, element, attrs){
-
-            scope.onSalvar = onSalvar;
-            scope.onExcluir = onExcluir;
-            scope.onLimpar = onLimpar;
-
-            function onSalvar(){
-                scope.salvar();
-            }
-
-            function onExcluir(){
-                scope.excluir();
-            }
-
-            function onLimpar(){
-                scope.limpar();
-            }
-
+            //não faz nada, tudo fica no service....
         }
     }
 

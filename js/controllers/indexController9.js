@@ -9,28 +9,25 @@
         .controller('IndexController9', IndexController9);
 
     /* @ngInject */
-    function IndexController9(AlertServices){
+    function IndexController9(AlertServices, PessoaService){
 
         var vm = this;
 
-        vm.entidade = {};
+        vm.rwService = PessoaService.getRwService();
+        vm.rwService.onAntesDeSalvar = onAntesDeSalvar;
+        vm.testeEnter = testeEnter;
 
-        vm.salvarPessoa = salvarPessoa;
-        vm.excluirPessoa = excluirPessoa;
-        vm.limparPessoa = limparPessoa;
-
-        function salvarPessoa(){
-            AlertServices.showSuccess('Super de boa!');
+        function onAntesDeSalvar(){
+            if(vm.rwService.entidade.nome === 'rw'){
+                AlertServices.showInfo('Não pode o nome: ' + vm.rwService.entidade.nome);
+                return false;
+            }
+            return true;
         }
 
-        function excluirPessoa(){
-            AlertServices.showError('Excluiu!!!');
+        function testeEnter(){
+            AlertServices.showInfo('Enter pressionado');
         }
-
-        function limparPessoa(){
-            AlertServices.showInfo('Limpeza geral!');
-        }
-
     }
 
 })();

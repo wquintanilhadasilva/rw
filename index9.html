@@ -16,10 +16,14 @@
     <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/oclazyload/dist/ocLazyLoad.js"></script>
+    <script src="bower_components/angular-keycode/angular-keycode.js"></script>
 
     <script src="js/app-config.js"></script>
+    <script src="arquitetura/service/rw-services.js"></script>
+    <script src="js/services/pessoa-service.js"></script>
     <script src="arquitetura/directives/rw-input-text/rw-input-text.js"></script>
     <script src="arquitetura/directives/rw-crud2/rw-crud2.js"></script>
+    <script src="arquitetura/directives/rw-enter/rw-enter.js"></script>
     <script src="js/services/AlertServices.js"></script>
     <script src="js/controllers/indexController9.js"></script>
 
@@ -30,9 +34,8 @@
 <div ng-controller="IndexController9 as vm" class="container">
 
     <rw-crud2 titulo="Cadastro de Alunos"
-             salvar="vm.salvarPessoa()"
-             excluir="vm.excluirPessoa()"
-             limpar = "vm.limparPessoa()">
+             service="vm.rwService"
+             rw-enter="vm.testeEnter()"   >
 
         <div class="row">
 
@@ -40,10 +43,10 @@
 
                 <rw-input-text label="Nome"
                                placeHolder="Entre com os dados da pessoa"
-                               ng-model="vm.entidade.nome"
+                               ng-model="vm.rwService.entidade.nome"
                                ng-required="true"
                                ng-maxlength="50"
-                               ng-alessandro = "vm.entidade.teste">
+                               ng-alessandro = "vm.rwService.entidade.nome">
                 </rw-input-text>
 
             </div>
@@ -51,15 +54,17 @@
             <div class="col-sm-6">
                 <rw-input-text label="Sobrenome"
                                placeHolder="Sobrenome da pessoa"
-                               ng-model="vm.entidade.sobreNome"
+                               ng-model="vm.rwService.entidade.sobreNome"
                                ng-required="false"
                                ng-maxlength="50">
                 </rw-input-text>
 
             </div>
 
-        </div>
+            <br><br>
+            {{rwService.entidade}}
 
+        </div>
 
     </rw-crud2>
 

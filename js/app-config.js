@@ -2,8 +2,14 @@
     'use strict';
 
     angular
-        .module('rw',['ngMessages','toastr','ui.grid','ui.router','oc.lazyLoad'])
-        .config(configWed);
+        .module('rw',[
+            'ngMessages',
+            'toastr',
+            'ui.grid',
+            'ui.router',
+            'oc.lazyLoad',
+            'angular-keycode'
+        ]).config(configWed);
 
     /* @ngInject */
     function configWed($stateProvider, $urlRouterProvider){

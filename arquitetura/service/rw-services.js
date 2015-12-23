@@ -10,44 +10,57 @@
     /* @ngInject */
     function RwService(AlertServices){
 
-        var self = this;
+        return function (controller){
 
-        self.entidade = {};
+            var self = this;
 
-        self.salvar = salvar;
-        self.excluir = excluir;
-        self.limpar = limpar;
+            self.controller = controller;
 
-        self.onAntesDeSalvar = onAntesDeSalvar;
-        self.onDepoisDeSalvar = onDepoisDeSalvar;
+            self.entidade = {};
 
-        function onAntesDeSalvar(){
-            return true;
-        }
+            self.salvar = salvar;
+            self.excluir = excluir;
+            self.limpar = limpar;
 
-        function onDepoisDeSalvar(){
+            self.onAntesDeSalvar = onAntesDeSalvar;
+            self.onDepoisDeSalvar = onDepoisDeSalvar;
 
-        }
-
-        function salvar(){
-
-            if(!self.onAntesDeSalvar()){
-                return;
+            function onAntesDeSalvar(){
+                return true;
             }
 
-            AlertServices.showSuccess('Super de boa!');
+            function onDepoisDeSalvar(){
 
-            self.onDepoisDeSalvar();
-        }
+            }
 
-        function excluir(){
-            AlertServices.showError('Excluiu!!!');
-        }
+            function salvar(){
 
-        function limpar(){
-            AlertServices.showInfo('Limpeza geral!');
-        }
+                if(!self.onAntesDeSalvar()){
+                    return;
+                }
 
+                //chamada rest no back, utilizando o controller
+
+                AlertServices.showSuccess('Super de boa! chamando controller: ' + self.controller);
+
+                self.onDepoisDeSalvar();
+            }
+
+            function excluir(){
+
+                //chamada rest no back, utilizando o controller
+
+                AlertServices.showError('Excluiu!!! chamando controller: ' + self.controller);
+            }
+
+            function limpar(){
+
+                //chamada rest no back, utilizando o controller
+
+                AlertServices.showInfo('Limpeza geral! chamando controller: ' + self.controller);
+            }
+
+        };
     }
 
 })();

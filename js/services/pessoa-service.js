@@ -10,13 +10,13 @@
         .service('PessoaService',PessoaService);
 
     /* @ngInject */
-    function PessoaService(){
+    function PessoaService(RwService){
 
         var self = this;
         self.getRwService = getRwService;
 
         function getRwService(){
-            return new RwService('PessoaController');
+            return new RwService('pessoaController');
         }
     }
 
